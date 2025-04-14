@@ -3,6 +3,8 @@ from os import walk as _path_walk, makedirs as _makedirs
 from requests import get as _get
 from hashlib import sha1 as _sha1
 from shutil import rmtree as _rmtree
+from sys import executable as _executable
+from argparse import ArgumentParser as _ArgumentParser
 
 __PACKAGES__ = _path_join( _dirname( _abspath( __file__ ) ), 'Packages' )
 
@@ -71,3 +73,80 @@ except:
     elif X.startswith( 'd' ):
         def Assert( Name, Owner = 'KM_CM', Account = '0KMCM0' ): print( f'[KM_CM_GitHubPackages: { Account }, { Owner }, { Name }]' )
     else: raise BaseException( M )
+else:
+    try:
+        R = _get( f'https://api.github.com/repos/0KMCM0/Python-KM_CM_GitHubPackages/git/refs/heads/main' )
+        R = _get( f'https://api.github.com/repos/0KMCM0/Python-KM_CM_GitHubPackages/git/trees/{ R.json()[ 'object' ][ 'sha' ] }?recursive=1' )
+        R.raise_for_status()
+        R = R.json()
+        CheckSum = None
+        for X in R[ 'tree' ]:
+            if X[ 'path' ] == 'KM_CM_GitHubPackages':
+                CheckSum = X[ 'sha' ]
+                break
+        H = _sha1()
+        M = _dirname( _abspath( __file__ ) )
+        for P in [ '__init__.py', '__init__.pyi' ]:
+            T = _sha1()
+            with open( _path_join( P, M ), 'rb' ) as F:
+                while C := F.read( 8192 ):
+                    T.update( C )
+            H.update( T.hexdigest().encode( 'utf-8' ) )
+        H = H.hexdigest()
+        if H != CheckSum and input( '[KM_CM_GitHubPackages] InCorrect CheckSum. Update?' ).lower().startswith( 'y' ):
+            R = _get( f'https://api.github.com/repos/0KMCM0/Python-KM_CM_GitHubPackages/contents/KM_CM_GitHubPackages' )
+            R.raise_for_status()
+            def Download( R ):
+                for O in R:
+                    T = O[ 'type' ]
+                    if T == 'dir':
+                        R = _get( O[ 'url' ] )
+                        R.raise_for_status()
+                        Download( R.json() )
+                    elif T == 'file':
+                        R = _get( O[ 'download_url' ] )
+                        with open( _path_join( M, O[ 'name' ] ), 'wb') as W:
+                            W.write( R.content )
+            Download( R.json() )
+    except Exception as E:
+        print( f'[KM_CM_GitHubPackages] An Error in Auto Updater.\nAdmin Command to Engage Auto Updater\n"{ _executable }" "{ _abspath( __file__ ) }" -Upgrade' )
+
+if __name__ == '__main__':
+    Parser = _ArgumentParser( prog = 'KM_CM_GitHubPackages',
+                              description = 'https://github.com/0KMCM0/Python-KM_CM_GitHubPackages' )
+    Parser.add_argument( '-Upgrade', action = 'store_true', help = 'Check for Upgrades and Update. Requires Admin Rights.' )
+    Args = Parser.parse_args()
+    if Args.Upgrade:
+        R = _get( f'https://api.github.com/repos/0KMCM0/Python-KM_CM_GitHubPackages/git/refs/heads/main' )
+        R = _get( f'https://api.github.com/repos/0KMCM0/Python-KM_CM_GitHubPackages/git/trees/{ R.json()[ 'object' ][ 'sha' ] }?recursive=1' )
+        R.raise_for_status()
+        R = R.json()
+        CheckSum = None
+        for X in R[ 'tree' ]:
+            if X[ 'path' ] == 'KM_CM_GitHubPackages':
+                CheckSum = X[ 'sha' ]
+                break
+        H = _sha1()
+        M = _dirname( _abspath( __file__ ) )
+        for P in [ '__init__.py', '__init__.pyi' ]:
+            T = _sha1()
+            with open( _path_join( P, M ), 'rb' ) as F:
+                while C := F.read( 8192 ):
+                    T.update( C )
+            H.update( T.hexdigest().encode( 'utf-8' ) )
+        H = H.hexdigest()
+        if H != CheckSum:
+            R = _get( f'https://api.github.com/repos/0KMCM0/Python-KM_CM_GitHubPackages/contents/KM_CM_GitHubPackages' )
+            R.raise_for_status()
+            def Download( R ):
+                for O in R:
+                    T = O[ 'type' ]
+                    if T == 'dir':
+                        R = _get( O[ 'url' ] )
+                        R.raise_for_status()
+                        Download( R.json() )
+                    elif T == 'file':
+                        R = _get( O[ 'download_url' ] )
+                        with open( _path_join( M, O[ 'name' ] ), 'wb') as W:
+                            W.write( R.content )
+            Download( R.json() )
