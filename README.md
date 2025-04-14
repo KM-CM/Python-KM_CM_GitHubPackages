@@ -1,4 +1,4 @@
-For Usage, See ``Installation.md``.
+For Installation, See ``Installation.md``.
 
 GitHubPackages (GHP for Short) is a Manager for Packages on GitHub.
 It should be in ``C:/Users/[You]/AppData/Local/Programs/Python/Python[Version]/Lib/site-packages``.
