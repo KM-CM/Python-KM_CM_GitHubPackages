@@ -11,4 +11,4 @@ The Folder is What The GHP will Use (CheckSums, Installs, Etc) - That is Actuall
 Files Like ``README.md``, or Anything Else You DONT want to Include in Your Package
 are to be Placed Anywhere Except That Folder.
 
-For a Fully Functioning Example, See [The Example "Hello, World!" Package](https://github.com/0KMCM0/Python-Example_GitHubPackages).
+For a Fully Functioning Example, See [The Example "Hello, World!" Package](https://github.com/0KMCM0/Python-KM_CM_GitHubPackages_Example).
