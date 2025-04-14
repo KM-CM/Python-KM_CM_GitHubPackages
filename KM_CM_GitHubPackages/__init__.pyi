@@ -1,4 +1,6 @@
 """
+https://github.com/0KMCM0/Python-KM_CM_GitHubPackages
+
 GitHubPackages (GHP for Short). A Manager for Packages on GitHub.
 It should be in ``C:/Users/[You]/AppData/Local/Programs/Python/Python[Version]/Lib/site-packages``.
 
