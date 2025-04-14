@@ -6,7 +6,7 @@ from shutil import rmtree as _rmtree
 
 __PACKAGES__ = _path_join( _dirname( _abspath( __file__ ) ), 'Packages' )
 
-def Assert( Name, Owner = 'KM_CM', Account = '0KMCM0' ):
+def Assert( Name, Owner, Account ):
     Type = True
     Path = _path_join( __PACKAGES__, Owner, Name )
     if _isdir( Path ):
