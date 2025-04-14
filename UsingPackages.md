@@ -12,7 +12,7 @@ GHP.Assert( 'YourPackageName', 'YourPackageOwner', 'YourPackageAccount' )
 For Example
 ```py
 import KM_CM_GitHubPackages as GHP
-GHP.Assert( 'Language' ) #Defaults to `GHP.Assert( 'Language', 'KM_CM', '0KMCM0' )`
+GHP.Assert( 'Language', 'KM_CM', '0KMCM0' )
 ```
 
 Now, The Following Step is NOT Mandatory, BUT, It is VERY IMPORTANT -
