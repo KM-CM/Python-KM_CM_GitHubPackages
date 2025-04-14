@@ -15,14 +15,15 @@ import KM_CM_GitHubPackages as GHP
 GHP.Assert( 'Language' ) #Defaults to `GHP.Assert( 'Language', 'KM_CM', '0KMCM0' )`
 ```
 
-Now, The Following Step is VERY IMPORTANT - Run It at LEAST Once with Internet Connection.
+Now, The Following Step is NOT Mandatory, BUT, It is VERY IMPORTANT -
+Run It at LEAST Once with Internet Connection.
 The Script will Ask You if You would Like to Download Packages - Do It.
 After This, All Your Packages will be Ready on Your Computer.
 
 Now That Your Packages are Ready, You're Finally Ready for The Simplest Step - Importing Your Packages.
 The Packages are Stored in `KM_CM_GitHubPackages.Packages`.
 If You're Importing a Whole Package (Not Specific Things), It is Intended to Use The Following Syntax
-```
+```py
 from KM_CM_GitHubPackages.Packages.YourPackageAccount import YourPackage
 ```
 For Example
