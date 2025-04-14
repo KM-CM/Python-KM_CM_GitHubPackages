@@ -22,7 +22,7 @@ Everything OutSide is Ignored.
 __PACKAGES__: str = ...
 """Path to The Packages."""
 
-def Assert( Name: str, Owner: str = 'KM_CM', Account: str = '0KMCM0' ) -> None:
+def Assert( Name: str, Owner: str, Account: str ) -> None:
     """
 Tries to Get The Package ``Name`` from ``Owner`` at ``Account``.
 If Successful, You can Import The Result at ``KM_CM_GitHubPackages.<Owner>.<Name>``.
