@@ -1,5 +1,3 @@
-I Strongly Recommend You to Read ``Terminology.md`` Before Reading This!
-
 Using Packages Via The GHP is VERY Easy. It Doesnt Require That Much.
 It Doesnt Require a Token, Familarity with GitHub... Hell, It Doesnt Even Require Familarity with Python!
 
