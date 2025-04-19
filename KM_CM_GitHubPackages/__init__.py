@@ -60,3 +60,9 @@ def Assert( Name, Owner, Account ):
                 with open( _path_join( __PACKAGES__, Owner, Name, O[ 'name' ] ), 'wb') as W:
                     W.write( R.content )
     Download( R.json() )
+
+try: assert _get( f'https://api.github.com' ).status_code == 200
+except:
+    def Assert( Name, Owner, Account ):
+        if not _isdir( _path_join( __PACKAGES__, Owner, Name ) ):
+            raise Exception( f'[KM_CM_GitHubPackages: { Account }, { Owner }, { Name }] Missing.' )
