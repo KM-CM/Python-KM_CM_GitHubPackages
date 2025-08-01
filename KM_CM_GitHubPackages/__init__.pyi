@@ -1,5 +1,5 @@
 """
-https://github.com/0KMCM0/Python-KM_CM_GitHubPackages
+https://github.com/KM-CM/Python-KM_CM_GitHubPackages
 
 GitHubPackages (GHP for Short). A Manager for Packages on GitHub.
 It should be in ``C:/Users/[You]/AppData/Local/Programs/Python/Python[Version]/Lib/site-packages``.
@@ -30,3 +30,4 @@ Can Determine Whether The Package Needs an Update or is Missing.
 
 WARNING: Slow. Will Do Nothing without Internet Access. Use at Your Program's Beginning.
     """
+
