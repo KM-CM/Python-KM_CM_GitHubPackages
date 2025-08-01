@@ -1,3 +1,5 @@
+NOTE: THIS IS NOT A SERIOUS PROJECT, AND I HAVE MADE IT FOR FUN
+
 For Installation, See ``Installation.md``.
 
 GitHubPackages (GHP for Short) is a Manager for Packages on GitHub.
